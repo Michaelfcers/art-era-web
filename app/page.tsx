@@ -4,26 +4,27 @@ import { useState } from "react";
 import UploadArea from "./components/UploadArea";
 import ResultDisplay from "./components/ResultDisplay";
 import Header from "./components/Header";
-import { ART_STYLES, ArtStyle } from "./data/styles";
+import { ArtStyle } from "./data/styles";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { classifyImage } from "./utils/classifier";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function Home() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [detectedStyle, setDetectedStyle] = useState<ArtStyle | null>(null);
+  const [confidence, setConfidence] = useState<number | undefined>(undefined);
   const [userImage, setUserImage] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   const handleImageSelected = async (file: File) => {
-    // 1. Create a local URL for the preview
     const imageUrl = URL.createObjectURL(file);
     setUserImage(imageUrl);
     setIsAnalyzing(true);
 
     try {
-      // 2. Real ONNX inference directly in browser
       const result = await classifyImage(file);
       setDetectedStyle(result.style);
+      setConfidence(result.confidence);
     } catch (error) {
       console.error("Error classifying image:", error);
     } finally {
@@ -33,6 +34,7 @@ export default function Home() {
 
   const handleReset = () => {
     setDetectedStyle(null);
+    setConfidence(undefined);
     setUserImage(null);
     setIsAnalyzing(false);
   };
@@ -49,15 +51,15 @@ export default function Home() {
         >
           <motion.h1
             layout="position"
-            className="text-5xl md:text-7xl tracking-tight font-medium bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl tracking-tight font-medium bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent"
           >
-            Art Era Detector
+            {t("title")}
           </motion.h1>
           <motion.p
             layout="position"
-            className="text-accent uppercase tracking-widest text-sm"
+            className="text-accent uppercase tracking-widest text-sm font-sans"
           >
-            Unveiling the soul of your imagery
+            {t("subtitle")}
           </motion.p>
         </motion.header>
 
@@ -85,6 +87,7 @@ export default function Home() {
             >
               <ResultDisplay
                 style={detectedStyle}
+                confidence={confidence}
                 userImage={userImage}
                 onReset={handleReset}
               />
@@ -94,21 +97,13 @@ export default function Home() {
 
       </main>
 
-      {/* Sections for "How it Works" and "Contact" (Mocked) */}
-      <section id="how-it-works" className="w-full py-20 text-center opacity-0 pointer-events-none absolute">
-        How it works section
-      </section>
-      <section id="contact" className="w-full py-20 text-center opacity-0 pointer-events-none absolute">
-        Contact section
-      </section>
-
       <motion.footer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="w-full text-center py-8 text-xs text-foreground/40 uppercase tracking-widest mt-auto relative z-10"
+        className="w-full text-center py-8 text-xs text-foreground/40 uppercase tracking-widest mt-auto relative z-10 font-sans"
       >
-        Powered by AI &bull; Curated by Art History
+        {t("footer")}
       </motion.footer>
     </div>
   );

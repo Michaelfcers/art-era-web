@@ -1,141 +1,34 @@
+export { STYLE_TRANSLATIONS } from './translations';
+
 export interface ArtStyle {
-    id: string;
-    name: string;
-    description: string;
-    imageUrl: string; // Placeholder for now
+  id: string;
+  name: string;
+  era: string;
+  description: string;
+  keyCharacteristics: string[];
+  imageUrl: string;
 }
 
-export const ART_STYLES: ArtStyle[] = [
-    {
-        id: 'impressionism',
-        name: 'Impressionism',
-        description: 'Capturing the sensory effect of a scene - the impression objects make on the eye in a fleeting instant.',
-        imageUrl: '/images/styles/impressionism.jpg',
-    },
-    {
-        id: 'expressionism',
-        name: 'Expressionism',
-        description: 'Art that seeks to convey emotional experience rather than physical reality.',
-        imageUrl: '/images/styles/expressionism.jpg',
-    },
-    {
-        id: 'cubism',
-        name: 'Cubism',
-        description: 'Objects are analyzed, broken up and reassembled in an abstracted form.',
-        imageUrl: '/images/styles/cubism.jpg',
-    },
-    {
-        id: 'surrealism',
-        name: 'Surrealism',
-        description: 'Unlocking the power of the imagination by releasing the creative potential of the unconscious mind.',
-        imageUrl: '/images/styles/surrealism.jpg',
-    },
-    {
-        id: 'abstract_expressionism',
-        name: 'Abstract Expressionism',
-        description: 'Spontaneous, automatic, or subconscious creation. The canvas as an arena in which to act.',
-        imageUrl: '/images/styles/abstract_expressionism.jpg',
-    },
-    {
-        id: 'pop_art',
-        name: 'Pop Art',
-        description: 'Challenging traditions of fine art by including imagery from popular and mass culture.',
-        imageUrl: '/images/styles/pop_art.jpg',
-    },
-    {
-        id: 'minimalism',
-        name: 'Minimalism',
-        description: 'Exposing the essence, essentials or identity of a subject through eliminating all non-essential forms.',
-        imageUrl: '/images/styles/minimalism.jpg',
-    },
-    {
-        id: 'renaissance',
-        name: 'Renaissance',
-        description: 'Characterized by a striving for realism and naturalism. Artists demonstrated a keen interest in classical antiquity.',
-        imageUrl: '/images/styles/renaissance.jpg',
-    },
-    {
-        id: 'baroque',
-        name: 'Baroque',
-        description: 'Exaggerated motion and clear detail used to produce drama, exuberance, and grandeur.',
-        imageUrl: '/images/styles/baroque.jpg',
-    },
-    {
-        id: 'romanticism',
-        name: 'Romanticism',
-        description: 'Emphasis on emotion and individualism, as well as glorification of all the past and nature.',
-        imageUrl: '/images/styles/romanticism.jpg',
-    },
-    {
-        id: 'realism',
-        name: 'Realism',
-        description: 'The attempt to represent subject matter truthfully, without artificiality and avoiding artistic conventions.',
-        imageUrl: '/images/styles/realism.jpg',
-    },
-    {
-        id: 'art_nouveau',
-        name: 'Art Nouveau',
-        description: 'Inspired by natural forms and structures, particularly the curved lines of plants and flowers.',
-        imageUrl: '/images/styles/art_nouveau.jpg',
-    },
-    {
-        id: 'art_deco',
-        name: 'Art Deco',
-        description: 'Characterized by precise and boldly delineated geometric shapes and strong colors.',
-        imageUrl: '/images/styles/art_deco.jpg',
-    },
-    {
-        id: 'bauhaus',
-        name: 'Bauhaus',
-        description: 'A distinct style characterized by simplified forms, functionality, and the idea that mass-production was reconcilable with the individual artistic spirit.',
-        imageUrl: '/images/styles/bauhaus.jpg',
-    },
-    {
-        id: 'fauvism',
-        name: 'Fauvism',
-        description: 'A style of les Fauves (the wild beasts), creating a strong expressive reaction to the subjects they painted.',
-        imageUrl: '/images/styles/fauvism.jpg',
-    },
-    {
-        id: 'pointillism',
-        name: 'Pointillism',
-        description: 'A technique of painting in which small, distinct dots of color are applied in patterns to form an image.',
-        imageUrl: '/images/styles/pointillism.jpg',
-    },
-    {
-        id: 'futurism',
-        name: 'Futurism',
-        description: 'Emphasized speed, technology, youth, and violence, and objects such as the car, the airplane, and the industrial city.',
-        imageUrl: '/images/styles/futurism.jpg',
-    },
-    {
-        id: 'dada',
-        name: 'Dada',
-        description: 'Rejected reason and logic, prizing nonsense, irrationality and intuition.',
-        imageUrl: '/images/styles/dada.jpg',
-    },
-    {
-        id: 'ukiyo_e',
-        name: 'Ukiyo-e',
-        description: 'Japanese woodblock prints and paintings which depicted the "floating world".',
-        imageUrl: '/images/styles/ukiyo_e.jpg',
-    },
-    {
-        id: 'pixel_art',
-        name: 'Pixel Art',
-        description: 'A digital art form where images are created and edited at the pixel level.',
-        imageUrl: '/images/styles/pixel_art.jpg',
-    },
-    {
-        id: 'cyberpunk',
-        name: 'Cyberpunk',
-        description: 'High tech, low life. Neon lights, dark cityscapes, and advanced technology.',
-        imageUrl: '/images/styles/cyberpunk.jpg',
-    },
-    {
-        id: 'steampunk',
-        name: 'Steampunk',
-        description: 'A subgenre of science fiction that incorporates retrofuturistic technology and aesthetics inspired by 19th-century industrial steam-powered machinery.',
-        imageUrl: '/images/styles/steampunk.jpg',
-    }
-];
+export const REFERENCE_IMAGES: Record<string, string> = {
+  abstract_expressionism: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80',
+  art_nouveau: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+  baroque: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+  color_field: 'https://images.unsplash.com/photo-1550684848-bac1c5b4e853?auto=format&fit=crop&w=800&q=80',
+  cubism: 'https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80',
+  early_renaissance: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80',
+  expressionism: 'https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?auto=format&fit=crop&w=800&q=80',
+  fauvism: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80',
+  high_renaissance: 'https://images.unsplash.com/photo-1579783901586-d88272d83723?auto=format&fit=crop&w=800&q=80',
+  impressionism: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+  mannerism: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+  minimalism: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+  naive_art: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80',
+  northern_renaissance: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80',
+  pop_art: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80',
+  post_impressionism: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+  realism: 'https://images.unsplash.com/photo-1579783901586-d88272d83723?auto=format&fit=crop&w=800&q=80',
+  rococo: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+  romanticism: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+  symbolism: 'https://images.unsplash.com/photo-1579783901586-d88272d83723?auto=format&fit=crop&w=800&q=80',
+  ukiyo_e: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80'
+};

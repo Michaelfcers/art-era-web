@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { Upload, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 interface UploadAreaProps {
     onImageSelected: (file: File) => void;
@@ -11,6 +12,7 @@ interface UploadAreaProps {
 
 export default function UploadArea({ onImageSelected, isAnalyzing }: UploadAreaProps) {
     const [isDragging, setIsDragging] = useState(false);
+    const { t } = useLanguage();
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
         e.preventDefault();
@@ -77,12 +79,12 @@ export default function UploadArea({ onImageSelected, isAnalyzing }: UploadAreaP
 
                     <div className="space-y-2">
                         <h3 className="text-xl font-medium">
-                            {isAnalyzing ? "Analyzing Masterpiece..." : "Upload Art Piece"}
+                            {isAnalyzing ? t("analyzingTitle") : t("uploadTitle")}
                         </h3>
                         <p className="text-sm text-foreground/60">
                             {isAnalyzing
-                                ? "Discerniing style, era, and technique"
-                                : "Drag & drop or click to browse"
+                                ? t("analyzingSubtitle")
+                                : t("uploadSubtitle")
                             }
                         </p>
                     </div>
