@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Upload, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
@@ -37,6 +37,28 @@ export default function UploadArea({ onImageSelected, isAnalyzing }: UploadAreaP
             onImageSelected(e.target.files[0]);
         }
     };
+
+    // Support Ctrl + V / Clipboard Paste
+    useEffect(() => {
+        const handlePaste = (e: ClipboardEvent) => {
+            if (isAnalyzing) return;
+            const items = e.clipboardData?.items;
+            if (!items) return;
+
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].type.startsWith("image/")) {
+                    const file = items[i].getAsFile();
+                    if (file) {
+                        onImageSelected(file);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener("paste", handlePaste);
+        return () => window.removeEventListener("paste", handlePaste);
+    }, [isAnalyzing, onImageSelected]);
 
     return (
         <motion.div

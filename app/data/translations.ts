@@ -15,7 +15,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     title: 'Art Era Detector',
     subtitle: 'Unveiling the soul of your imagery',
     uploadTitle: 'Upload Art Piece',
-    uploadSubtitle: 'Drag & drop or click to browse',
+    uploadSubtitle: 'Drag & drop, click to browse, or paste with Ctrl + V',
     analyzingTitle: 'Analyzing Masterpiece...',
     analyzingSubtitle: 'Discerning style, era, and technique',
     detectedStyle: 'Detected Style',
@@ -23,8 +23,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     reference: 'Reference',
     era: 'Era / Period',
     keyCharacteristics: 'Key Characteristics:',
-    analyzeAnother: 'Analyze Another Piece',
-    footer: 'Powered by AI • Curated by Art History'
+    analyzeAnother: 'Analyze Another Piece'
   },
   es: {
     home: 'Inicio',
@@ -33,7 +32,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     title: 'Art Era Detector',
     subtitle: 'Revelando el alma de tus imágenes',
     uploadTitle: 'Subir obra de arte',
-    uploadSubtitle: 'Arrastra y suelta o haz clic para buscar',
+    uploadSubtitle: 'Arrastra y suelta, busca o pega con Ctrl + V',
     analyzingTitle: 'Analizando obra de arte...',
     analyzingSubtitle: 'Identificando estilo, época y técnica',
     detectedStyle: 'Estilo Detectado',
@@ -41,8 +40,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     reference: 'Referencia',
     era: 'Época / Período',
     keyCharacteristics: 'Características principales:',
-    analyzeAnother: 'Analizar otra obra',
-    footer: 'Desarrollado con IA • Curado por Historia del Arte'
+    analyzeAnother: 'Analizar otra obra'
   },
   pt: {
     home: 'Início',
@@ -51,7 +49,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     title: 'Art Era Detector',
     subtitle: 'Revelando a alma de suas imagens',
     uploadTitle: 'Carregar obra de arte',
-    uploadSubtitle: 'Arraste e solte ou clique para procurar',
+    uploadSubtitle: 'Arraste e solte, clique para procurar ou cole com Ctrl + V',
     analyzingTitle: 'A analisar obra de arte...',
     analyzingSubtitle: 'A identificar estilo, época e técnica',
     detectedStyle: 'Estilo Detetado',
@@ -59,8 +57,7 @@ export const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
     reference: 'Referência',
     era: 'Época / Período',
     keyCharacteristics: 'Características principais:',
-    analyzeAnother: 'Analisar outra obra',
-    footer: 'Desenvolvido com IA • Curado por História da Arte'
+    analyzeAnother: 'Analisar outra obra'
   }
 };
 
