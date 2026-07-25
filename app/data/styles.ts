@@ -9,27 +9,27 @@ export interface ArtStyle {
   imageUrl: string;
 }
 
-// Local image paths inside public/images/styles/<id>.jpg for instant, reliable loading
+// Local WebP image paths inside public/images/styles/<id>.webp for instant, reliable loading
 export const REFERENCE_IMAGES: Record<string, string> = {
-  abstract_expressionism: '/images/styles/abstract_expressionism.jpg',
-  art_nouveau: '/images/styles/art_nouveau.jpg',
-  baroque: '/images/styles/baroque.jpg',
-  color_field: '/images/styles/color_field.jpg',
-  cubism: '/images/styles/cubism.jpg',
-  early_renaissance: '/images/styles/early_renaissance.jpg',
-  expressionism: '/images/styles/expressionism.jpg',
-  fauvism: '/images/styles/fauvism.jpg',
-  high_renaissance: '/images/styles/high_renaissance.jpg',
-  impressionism: '/images/styles/impressionism.jpg',
-  mannerism: '/images/styles/mannerism.jpg',
-  minimalism: '/images/styles/minimalism.jpg',
-  naive_art: '/images/styles/naive_art.jpg',
-  northern_renaissance: '/images/styles/northern_renaissance.jpg',
-  pop_art: '/images/styles/pop_art.jpg',
-  post_impressionism: '/images/styles/post_impressionism.jpg',
-  realism: '/images/styles/realism.jpg',
-  rococo: '/images/styles/rococo.jpg',
-  romanticism: '/images/styles/romanticism.jpg',
-  symbolism: '/images/styles/symbolism.jpg',
-  ukiyo_e: '/images/styles/ukiyo_e.jpg'
+  abstract_expressionism: '/images/styles/abstract_expressionism.webp',
+  art_nouveau: '/images/styles/art_nouveau.webp',
+  baroque: '/images/styles/baroque.webp',
+  color_field: '/images/styles/color_field.webp',
+  cubism: '/images/styles/cubism.webp',
+  early_renaissance: '/images/styles/early_renaissance.webp',
+  expressionism: '/images/styles/expressionism.webp',
+  fauvism: '/images/styles/fauvism.webp',
+  high_renaissance: '/images/styles/high_renaissance.webp',
+  impressionism: '/images/styles/impressionism.webp',
+  mannerism: '/images/styles/mannerism.webp',
+  minimalism: '/images/styles/minimalism.webp',
+  naive_art: '/images/styles/naive_art.webp',
+  northern_renaissance: '/images/styles/northern_renaissance.webp',
+  pop_art: '/images/styles/pop_art.webp',
+  post_impressionism: '/images/styles/post_impressionism.webp',
+  realism: '/images/styles/realism.webp',
+  rococo: '/images/styles/rococo.webp',
+  romanticism: '/images/styles/romanticism.webp',
+  symbolism: '/images/styles/symbolism.webp',
+  ukiyo_e: '/images/styles/ukiyo_e.webp'
 };
