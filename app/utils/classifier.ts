@@ -112,7 +112,7 @@ export async function classifyImage(file: File, lang: Language = 'en'): Promise<
 
   const mapped = MODEL_CLASSES_KEYS.map((key, idx) => {
     const info = STYLE_TRANSLATIONS[key]?.[lang] || STYLE_TRANSLATIONS[key]?.['en'];
-    const imageUrl = REFERENCE_IMAGES[key] || `/images/styles/${key}.jpg`;
+    const imageUrl = REFERENCE_IMAGES[key] || `/images/styles/${key}.webp`;
     return {
       style: {
         id: key,
