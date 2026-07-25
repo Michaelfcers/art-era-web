@@ -104,15 +104,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <Contact />
-
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="w-full text-center py-8 text-xs text-foreground/40 uppercase tracking-widest mt-auto relative z-10 font-sans"
-      >
-        {t("footer")}
-      </motion.footer>
     </div>
   );
 }
