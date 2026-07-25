@@ -7,24 +7,28 @@ import Header from "./components/Header";
 import { ART_STYLES, ArtStyle } from "./data/styles";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { classifyImage } from "./utils/classifier";
+
 export default function Home() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [detectedStyle, setDetectedStyle] = useState<ArtStyle | null>(null);
   const [userImage, setUserImage] = useState<string | null>(null);
 
-  const handleImageSelected = (file: File) => {
+  const handleImageSelected = async (file: File) => {
     // 1. Create a local URL for the preview
     const imageUrl = URL.createObjectURL(file);
     setUserImage(imageUrl);
     setIsAnalyzing(true);
 
-    // 2. MOCK: Simulate API processing time (2 seconds)
-    setTimeout(() => {
-      // 3. MOCK: Randomly select a style
-      const randomStyle = ART_STYLES[Math.floor(Math.random() * ART_STYLES.length)];
-      setDetectedStyle(randomStyle);
+    try {
+      // 2. Real ONNX inference directly in browser
+      const result = await classifyImage(file);
+      setDetectedStyle(result.style);
+    } catch (error) {
+      console.error("Error classifying image:", error);
+    } finally {
       setIsAnalyzing(false);
-    }, 2000);
+    }
   };
 
   const handleReset = () => {
