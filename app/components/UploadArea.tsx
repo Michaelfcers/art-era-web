@@ -40,19 +40,19 @@ export default function UploadArea({ onImageSelected, isAnalyzing }: UploadAreaP
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full max-w-xl mx-auto"
+            className="w-full max-w-3xl mx-auto"
         >
             <div
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 className={`
-          relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300
+          relative border-2 border-dashed rounded-2xl p-16 sm:p-24 text-center transition-all duration-300 min-h-[360px] sm:min-h-[420px] flex items-center justify-center shadow-xs
           ${isDragging
-                        ? "border-accent bg-accent/5 scale-[1.02]"
-                        : "border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
+                        ? "border-accent bg-accent/10 scale-[1.02] shadow-md"
+                        : "border-foreground/20 hover:border-accent/60 hover:bg-foreground/[0.02]"
                     }
           ${isAnalyzing ? "pointer-events-none opacity-50" : "cursor-pointer"}
         `}
@@ -65,23 +65,25 @@ export default function UploadArea({ onImageSelected, isAnalyzing }: UploadAreaP
                     disabled={isAnalyzing}
                 />
 
-                <div className="flex flex-col items-center justify-center space-y-4">
+                <div className="flex flex-col items-center justify-center space-y-6 max-w-md mx-auto">
                     {isAnalyzing ? (
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         >
-                            <Loader2 className="w-12 h-12 text-accent" />
+                            <Loader2 className="w-16 h-16 sm:w-20 sm:h-20 text-accent" />
                         </motion.div>
                     ) : (
-                        <Upload className="w-12 h-12 text-foreground/60" />
+                        <div className="p-5 rounded-full bg-accent/10 text-accent">
+                            <Upload className="w-12 h-12 sm:w-16 sm:h-16" />
+                        </div>
                     )}
 
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-medium">
+                    <div className="space-y-3">
+                        <h3 className="text-2xl sm:text-3xl font-serif font-medium text-foreground tracking-tight">
                             {isAnalyzing ? t("analyzingTitle") : t("uploadTitle")}
                         </h3>
-                        <p className="text-sm text-foreground/60">
+                        <p className="text-base sm:text-lg font-sans text-foreground/60 leading-relaxed">
                             {isAnalyzing
                                 ? t("analyzingSubtitle")
                                 : t("uploadSubtitle")

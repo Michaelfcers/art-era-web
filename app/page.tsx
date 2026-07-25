@@ -4,6 +4,8 @@ import { useState } from "react";
 import UploadArea from "./components/UploadArea";
 import ResultDisplay from "./components/ResultDisplay";
 import Header from "./components/Header";
+import HowItWorks from "./components/HowItWorks";
+import Contact from "./components/Contact";
 import { ArtStyle } from "./data/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { classifyImage } from "./utils/classifier";
@@ -14,7 +16,7 @@ export default function Home() {
   const [detectedStyle, setDetectedStyle] = useState<ArtStyle | null>(null);
   const [confidence, setConfidence] = useState<number | undefined>(undefined);
   const [userImage, setUserImage] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleImageSelected = async (file: File) => {
     const imageUrl = URL.createObjectURL(file);
@@ -22,7 +24,7 @@ export default function Home() {
     setIsAnalyzing(true);
 
     try {
-      const result = await classifyImage(file);
+      const result = await classifyImage(file, language);
       setDetectedStyle(result.style);
       setConfidence(result.confidence);
     } catch (error) {
@@ -40,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-8 sm:p-20 font-[var(--font-serif)] relative overflow-hidden">
+    <div id="top" className="min-h-screen flex flex-col items-center p-8 sm:p-20 font-[var(--font-serif)] relative overflow-hidden scroll-mt-28">
       <Header />
 
       <main className="w-full max-w-6xl mx-auto flex flex-col items-center gap-16 mt-20 flex-grow justify-center relative z-10">
@@ -96,6 +98,12 @@ export default function Home() {
         </AnimatePresence>
 
       </main>
+
+      {/* How It Works Section */}
+      <HowItWorks />
+
+      {/* Contact Section */}
+      <Contact />
 
       <motion.footer
         initial={{ opacity: 0 }}
