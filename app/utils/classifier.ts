@@ -2,6 +2,9 @@ import * as ort from "onnxruntime-web";
 import { STYLE_TRANSLATIONS, Language } from "../data/translations";
 import { REFERENCE_IMAGES, ArtStyle } from "../data/styles";
 
+// Configure ONNX Web to load WASM binaries from CDN so Cloudflare Pages 25MB file limit is not exceeded
+ort.env.wasm.wasmPaths = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.27.0/dist/";
+
 const MODEL_URL = "https://huggingface.co/michaelrodcs/art-style-convnext/resolve/main/art-style-convnext-quantized.onnx";
 
 export const MODEL_CLASSES_KEYS = [
