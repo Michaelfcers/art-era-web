@@ -111,11 +111,11 @@ export default function Header() {
                 <div ref={dropdownRef} className="relative shrink-0">
                     <button
                         onClick={() => setIsLangOpen(!isLangOpen)}
-                        className="bg-white/70 backdrop-blur-md border border-white/20 px-2.5 py-2 sm:px-3.5 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-sm hover:bg-white/90 transition-all cursor-pointer w-[54px] sm:w-[64px] justify-center"
+                        className="bg-white/70 backdrop-blur-md border border-white/20 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-sm hover:bg-white/90 transition-all cursor-pointer min-w-[58px] sm:min-w-[68px] justify-center"
                         title={currentLangObj.title}
                     >
-                        <ActiveFlag className="w-5 h-3.5 sm:w-6 sm:h-4 rounded-xs shadow-xs" />
-                        <ChevronDown className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-foreground/50 transition-transform duration-300 ${isLangOpen ? "rotate-180" : ""}`} />
+                        <ActiveFlag className="w-5 h-3.5 sm:w-6 sm:h-4 rounded-xs shadow-xs shrink-0" />
+                        <ChevronDown className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-foreground/70 shrink-0 transition-transform duration-300 ${isLangOpen ? "rotate-180" : ""}`} />
                     </button>
 
                     <AnimatePresence>
@@ -125,7 +125,7 @@ export default function Header() {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                 transition={{ duration: 0.2 }}
-                                className="absolute right-0 mt-2 bg-white/90 backdrop-blur-md border border-white/30 rounded-2xl p-1.5 shadow-lg flex flex-col gap-1 w-[54px] sm:w-[64px] items-center z-50"
+                                className="absolute right-0 mt-2 bg-white/90 backdrop-blur-md border border-white/30 rounded-2xl p-1.5 shadow-lg flex flex-col gap-1 min-w-[58px] sm:min-w-[68px] items-center z-50"
                             >
                                 {languages.map((lang) => {
                                     const OptionFlag = lang.FlagComponent;
@@ -145,7 +145,7 @@ export default function Header() {
                        `}
                                             title={lang.title}
                                         >
-                                            <OptionFlag className="w-5 h-3.5 sm:w-6 sm:h-4 rounded-xs shadow-xs" />
+                                            <OptionFlag className="w-5 h-3.5 sm:w-6 sm:h-4 rounded-xs shadow-xs shrink-0" />
                                         </button>
                                     );
                                 })}
