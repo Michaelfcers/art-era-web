@@ -1,35 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Heart } from "lucide-react";
+import { Github, Heart, Linkedin, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-export default function Contact() {
+interface ContactProps {
+  portfolioUrl?: string;
+}
+
+export default function Contact({ portfolioUrl }: ContactProps) {
   const { language } = useLanguage();
 
   const content = {
     en: {
       tagline: "Get in Touch",
       title: "Built for Art & Technology Lovers",
-      subtitle: "Questions, feedback, or collaboration inquiries? Feel free to connect.",
-      emailBtn: "Contact Creator",
-      githubBtn: "View on GitHub",
+      subtitle: "Interested in the code, machine learning models, or connecting professionally?",
+      githubBtn: "View GitHub",
+      linkedinBtn: "LinkedIn",
+      portfolioBtn: "Portfolio",
       craftedWith: "Crafted with passion for Art History & AI"
     },
     es: {
       tagline: "Contacto",
       title: "Creado para Amantes del Arte y la Tecnología",
-      subtitle: "¿Preguntas, sugerencias o ideas de colaboración? Estemos en contacto.",
-      emailBtn: "Contactar Creador",
-      githubBtn: "Ver en GitHub",
+      subtitle: "¿Te interesa el código, los modelos de IA o conectar profesionalmente?",
+      githubBtn: "Ver GitHub",
+      linkedinBtn: "LinkedIn",
+      portfolioBtn: "Portafolio",
       craftedWith: "Creado con pasión por la Historia del Arte y la IA"
     },
     pt: {
       tagline: "Contacto",
       title: "Criado para Amantes de Arte e Tecnologia",
-      subtitle: "Dúvidas, sugestões ou ideias de colaboração? Entre em contacto.",
-      emailBtn: "Contactar Criador",
-      githubBtn: "Ver no GitHub",
+      subtitle: "Interessado no código, modelos de IA ou em conectar-se profissionalmente?",
+      githubBtn: "Ver GitHub",
+      linkedinBtn: "LinkedIn",
+      portfolioBtn: "Portfólio",
       craftedWith: "Criado com paixão pela História da Arte e IA"
     }
   };
@@ -75,23 +82,40 @@ export default function Contact() {
           transition={{ delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-4 pt-2"
         >
+          {/* GitHub Button */}
           <a
-            href="mailto:contact@michaelrodcs.dev"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-sans text-xs uppercase tracking-widest hover:opacity-90 transition-opacity shadow-sm"
-          >
-            <Mail className="w-4 h-4" />
-            <span>{current.emailBtn}</span>
-          </a>
-
-          <a
-            href="https://github.com/michaelrodcs/art-era-style"
+            href="https://github.com/Michaelfcers"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-foreground/30 text-foreground font-sans text-xs uppercase tracking-widest hover:bg-foreground/5 transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-sans text-xs uppercase tracking-widest hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
           >
             <Github className="w-4 h-4" />
             <span>{current.githubBtn}</span>
           </a>
+
+          {/* LinkedIn Button */}
+          <a
+            href="https://www.linkedin.com/in/michael-rodriguez-cervantes/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-foreground/30 text-foreground font-sans text-xs uppercase tracking-widest hover:bg-foreground/5 transition-colors shadow-sm cursor-pointer"
+          >
+            <Linkedin className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+            <span>{current.linkedinBtn}</span>
+          </a>
+
+          {/* Optional Portfolio Button */}
+          {portfolioUrl && (
+            <a
+              href={portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-foreground/30 text-foreground font-sans text-xs uppercase tracking-widest hover:bg-foreground/5 transition-colors shadow-sm cursor-pointer"
+            >
+              <Globe className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <span>{current.portfolioBtn}</span>
+            </a>
+          )}
         </motion.div>
 
         <motion.div
